@@ -6,7 +6,6 @@ app = Flask(__name__)
 def home():
     portfolio_data = {
         "name": "Akshata",
-        "cgpa": "9.0",
         "education": [
             {
                 "level": "SSLC",
