@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div class="torch-cursor"></div>
+    <div class="torch-cursor-dot"></div>
     <div class="blob-container">
         <div class="blob-purple"></div>
         <div class="blob-magenta"></div>
@@ -186,6 +188,22 @@
             el.style.transform = "translateY(30px)";
             el.style.transition = "all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
             observer.observe(el);
+        });
+
+        // Torch Cursor Logic
+        const torch = document.querySelector('.torch-cursor');
+        const dot = document.querySelector('.torch-cursor-dot');
+        
+        document.addEventListener('mousemove', (e) => {
+            torch.style.left = e.clientX + 'px';
+            torch.style.top = e.clientY + 'px';
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+            el.addEventListener('mouseenter', () => dot.classList.add('hover'));
+            el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
         });
     </script>
 </body>

@@ -414,3 +414,42 @@ footer {
         gap: 2.5rem;
     }
 }
+
+/* Torch Cursor */
+body, a, button, input, textarea, select {
+    cursor: none !important;
+}
+
+.torch-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+}
+
+.torch-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: transform 0.1s ease;
+}
+
+.torch-cursor-dot.hover {
+    transform: translate(-50%, -50%) scale(2.5);
+    background: #D4AF37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+}
