@@ -18,6 +18,11 @@
     <!-- Navigation -->
     <nav>
         <div class="logo"></div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#education">Education</a>
@@ -266,10 +271,27 @@
             dot.style.top = e.clientY + 'px';
         });
 
-        document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+        document.querySelectorAll('a, button, input, textarea, select, .hamburger').forEach(el => {
             el.addEventListener('mouseenter', () => dot.classList.add('hover'));
             el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
         });
+
+        // Hamburger Menu Logic
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
     </script>
 </body>
 </html>
